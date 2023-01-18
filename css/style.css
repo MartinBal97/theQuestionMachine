@@ -1,0 +1,9 @@
+body{
+    height: 100vh;
+}
+.carta{
+    margin: 0 auto;
+    background-color: gray;
+    width: 50%;
+    height: 30px;
+}
