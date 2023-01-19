@@ -1,0 +1,92 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Outfit';
+    color: rgba(245, 228, 220, 0.76);
+ 
+}
+
+/* Para todo el Body, donde vas a escribir */
+body {
+    background-image: url(/pages/azul.jpg);
+    background-position: 50% 35%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
+.containerPrincipal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pregunta {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(240, 255, 247, 0.596);
+    gap: 50px;
+}
+.preguntas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+    
+}
+.block1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+    
+}
+.block2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+button{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: rgba(245, 228, 220, 0.76);
+    justify-content: center;
+    background-image: url(/pages/azul.jpg);
+    background-position: 70% 45%;
+    font-size: 18px;
+    border-radius: 10px;
+    gap: 50px;
+}
+
+button:hover {
+    background-color: #2a5b45
+}
+.button {
+    display: flex;
+    flex-direction: row;
+}
+#text3d {
+    color: #70869d;
+    letter-spacing: .15em;
+    text-shadow: 
+      -1px -1px 1px  rgba(245, 228, 220, 0.76),  
+      2px 20px 5px rgba(0, 0, 0, 0.9),
+      5px 20px 5px rgba(0, 0, 0, 0.3),
+      8px 20px 8px rgba(0, 0, 0, 0.5),
+      8px 20px 20px rgba(0, 0, 0, 0.9);
+ }
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
