@@ -55,13 +55,13 @@ nextQuestion.addEventListener("click", () => {
                 <button disabled id="checkAnswer">Check Answer</button>
                 <div class="showCorrect">
                 </div>`;
-        } else {
+        } /*else {
             nextQuestion.style="display:none;"
             containerPrincipal.innerHTML = `
             <div class="containerPregunta">
                 <a href="./pages/finalResult.html">Ver Resultados !!</a>      
             </div>`
-        }
+        }*/
 
         const showCorrect = document.querySelector('.showCorrect')
         const inputs = document.querySelectorAll('.inpRad')
@@ -76,7 +76,7 @@ nextQuestion.addEventListener("click", () => {
                 checkAnswer.disabled = false;
             })
         })
-
+        nextQuestion.innerHTML='Next Question'
         checkAnswer.addEventListener("click", () => {
             inputChecked = document.querySelector(`input[name=responses${cont}]:checked`).value
             console.log(inputChecked);
@@ -101,9 +101,11 @@ nextQuestion.addEventListener("click", () => {
             nextQuestion.disabled = false;
             inputs.forEach(input => input.disabled = true)
 
+            if (cont == 10) {
+                nextQuestion.innerHTML=` <a href="./pages/finalResult.html">Ver Resultados !!</a>  `    
+            }
         })
-
-        nextQuestion.innerHTML='Next Question'
+        
 
 
 
