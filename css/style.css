@@ -1,0 +1,14 @@
+.preguntas {
+    display:flex;
+    flex-direction: column;
+}
+
+.contTodo {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 80vh;
+}
