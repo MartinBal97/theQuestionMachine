@@ -55,13 +55,7 @@ nextQuestion.addEventListener("click", () => {
                 <button disabled id="checkAnswer">Check Answer</button>
                 <div class="showCorrect">
                 </div>`;
-        } /*else {
-            nextQuestion.style="display:none;"
-            containerPrincipal.innerHTML = `
-            <div class="containerPregunta">
-                <a href="./pages/finalResult.html">Ver Resultados !!</a>      
-            </div>`
-        }*/
+        } 
 
         const showCorrect = document.querySelector('.showCorrect')
         const inputs = document.querySelectorAll('.inpRad')
