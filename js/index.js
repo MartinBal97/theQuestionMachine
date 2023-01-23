@@ -1,12 +1,10 @@
 const containerPrincipal = document.querySelector(".containerPrincipal");
 const nextQuestion = document.querySelector(".nextQuestion");
 
-
 let puntaje = 0;
 let cont = 0;
 nextQuestion.addEventListener("click", () => {
     cont++;
-
 
     fetch("https://the-trivia-api.com/api/questions?limit=1")
     .then((res) => res.json())
@@ -73,7 +71,7 @@ nextQuestion.addEventListener("click", () => {
         nextQuestion.innerHTML='Next Question'
         checkAnswer.addEventListener("click", () => {
             inputChecked = document.querySelector(`input[name=responses${cont}]:checked`).value
-            console.log(inputChecked);
+
             if (inputChecked === 'correct') {
                 puntaje++
                 console.log(puntaje);
@@ -99,10 +97,5 @@ nextQuestion.addEventListener("click", () => {
                 nextQuestion.innerHTML=` <a href="./pages/finalResult.html">Ver Resultados !!</a>  `    
             }
         })
-        
-
-
-
     })
-
 })
