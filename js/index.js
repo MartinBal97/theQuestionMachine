@@ -25,7 +25,7 @@ nextQuestion.addEventListener("click", () => {
 
         if (cont < 11) {
             containerPrincipal.innerHTML = `
-            <p> Pregunta número ${cont}</p>
+            <p> Question number ${cont}</p>
             <h3>${e[0].question}</h3>
             <div class="containerPregunta">
                 <div class="preguntas">
@@ -75,15 +75,15 @@ nextQuestion.addEventListener("click", () => {
             if (inputChecked === 'correct') {
                 puntaje++
                 console.log(puntaje);
-                showCorrect.innerHTML = `<p>Tu respuesta es correcta !!</p>`
+                showCorrect.innerHTML = `<p>Your answer is correct.</p>`
                 localStorage.setItem('puntaje', JSON.stringify(puntaje))
             } else {
                 inputs.forEach((input) => {
                     if (input.value=== 'correct') {
                         let correctAnswer = input.nextElementSibling.innerText
                         showCorrect.innerHTML = `
-                                <p>Tu respuesta es incorrecta.</p>
-                                <p>La respuesta correcta es ${correctAnswer}.</p>
+                                <p>Your answer is incorrect.</p>
+                                <p>The correct answer is ${correctAnswer}.</p>
                                 `
                     }
                 })
@@ -94,7 +94,8 @@ nextQuestion.addEventListener("click", () => {
             inputs.forEach(input => input.disabled = true)
 
             if (cont == 10) {
-                nextQuestion.innerHTML=` <a href="./pages/finalResult.html">Ver Resultados !!</a>  `    
+                nextQuestion.disabled = true;
+                nextQuestion.innerHTML=` <a style="width:100%; height: 100%" href="./pages/finalResult.html"> See results </a>  `    
             }
         })
     })
