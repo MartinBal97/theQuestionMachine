@@ -6,12 +6,24 @@
 }
 .preguntas {
     display:flex;
+
     flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+button{
+    width: 200px;
+    height: 50px;
+    color: rgba(245, 228, 220, 0.76);
+    background-image: url(/pages/azul.jpg);
+    background-position: 70% 45%;
+    font-size: 18px;
+    border-radius: 10px;
+    gap: 50px;
 }
 body {
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
 }
-
 button, a {
     padding: 0.4rem 0.9rem;
     border-radius: 6px;
@@ -24,6 +36,8 @@ button, a {
 }
 .contTodo {
     display: flex;
+    color: black;
+    font-size: 24px;
     flex-direction: column;
     width: fit-content;
     max-width: 800px;
@@ -40,3 +54,4 @@ button, a {
     border: 1px black solid;
     padding: 0.4rem 0.9rem;
 }
+
