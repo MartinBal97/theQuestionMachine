@@ -1,12 +1,10 @@
 const containerPrincipal = document.querySelector(".containerPrincipal");
 const nextQuestion = document.querySelector(".nextQuestion");
 
-
 let puntaje = 0;
 let cont = 0;
 nextQuestion.addEventListener("click", () => {
     cont++;
-
 
     fetch("https://the-trivia-api.com/api/questions?limit=1")
         .then((res) => res.json())
@@ -25,9 +23,11 @@ nextQuestion.addEventListener("click", () => {
 
             let randoms = randomsNumbers()
 
-            if (cont < 11) {
-                containerPrincipal.innerHTML = `
-            <p> Pregunta número ${cont}</p>
+
+        if (cont < 11) {
+            containerPrincipal.innerHTML = `
+            <p> Question number ${cont}</p>
+
             <h3>${e[0].question}</h3>
             <div class="containerPregunta">
 
@@ -63,18 +63,11 @@ nextQuestion.addEventListener("click", () => {
                 <div class="schowCorrect1">
                  <button disabled id="checkAnswer">Check Answer</button>
                 </div>
-          
-            </div>`;
 
-
-
-            } /*else {
-            nextQuestion.style="display:none;"
-            containerPrincipal.innerHTML = `
-            <div class="containerPregunta">
-                <a href="./pages/finalResult.html">Ver Resultados !!</a>      
-            </div>`
-        }*/
+                <button disabled id="checkAnswer">Check Answer</button>
+                <div class="showCorrect">
+                </div>`;
+        } 
 
             const showCorrect = document.querySelector('.showCorrect')
             const inputs = document.querySelectorAll('.inpRad')
@@ -89,22 +82,25 @@ nextQuestion.addEventListener("click", () => {
                     checkAnswer.disabled = false;
                 })
             })
-            nextQuestion.innerHTML = 'Next Question'
-            checkAnswer.addEventListener("click", () => {
-                inputChecked = document.querySelector(`input[name=responses${cont}]:checked`).value
 
-                if (inputChecked === 'correct') {
-                    puntaje++
-                    console.log(puntaje);
-                    showCorrect.innerHTML = `<p>Tu respuesta es correcta !!</p>`
-                    localStorage.setItem('puntaje', JSON.stringify(puntaje))
-                } else {
-                    inputs.forEach((input) => {
-                        if (input.value === 'correct') {
-                            let correctAnswer = input.nextElementSibling.innerText
-                            showCorrect.innerHTML = `
-                                <p>Tu respuesta es incorrecta.</p>
-                                <p>La respuesta correcta es ${correctAnswer}.</p>
+        })
+        nextQuestion.innerHTML='Next Question'
+        checkAnswer.addEventListener("click", () => {
+            inputChecked = document.querySelector(`input[name=responses${cont}]:checked`).value
+
+            if (inputChecked === 'correct') {
+                puntaje++
+                console.log(puntaje);
+                showCorrect.innerHTML = `<p>Your answer is correct.</p>`
+                localStorage.setItem('puntaje', JSON.stringify(puntaje))
+            } else {
+                inputs.forEach((input) => {
+                    if (input.value=== 'correct') {
+                        let correctAnswer = input.nextElementSibling.innerText
+                        showCorrect.innerHTML = `
+                                <p>Your answer is incorrect.</p>
+                                <p>The correct answer is ${correctAnswer}.</p>
+
                                 `
                         }
                     })
@@ -114,14 +110,11 @@ nextQuestion.addEventListener("click", () => {
                 nextQuestion.disabled = false;
                 inputs.forEach(input => input.disabled = true)
 
-                if (cont == 10) {
-                    nextQuestion.innerHTML = ` <a href="./pages/finalResult.html">Ver Resultados !!</a>  `
-                }
-            })
-
-
-
-
+            if (cont == 10) {
+                nextQuestion.disabled = true;
+                nextQuestion.innerHTML=` <a style="width:100%; height: 100%" href="./pages/finalResult.html"> See results </a>  `    
+            }
         })
+    })
 
 })
